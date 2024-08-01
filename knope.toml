@@ -1,9 +1,11 @@
 [packages.crate1]
 versioned_files = ["src/crate1/Cargo.toml"]
+changelog = "src/crate1/CHANGELOG.md"
 scopes = ["crate1"]
 
 [packages.crate2]
 versioned_files = ["src/crate2/Cargo.toml"]
+changelog = "src/crate1/CHANGELOG.md"
 scopes = ["crate2"]
 
 [[workflows]]
