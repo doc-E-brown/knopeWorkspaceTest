@@ -1,0 +1,49 @@
+[packages.crate1]
+versioned_files = ["src/crate1/Cargo.toml"]
+scopes = ["src/crate1"]
+
+[packages.crate2]
+versioned_files = ["src/crate2/Cargo.toml"]
+scopes = ["src/crate2"]
+
+
+[[workflows]]
+name = "release"
+
+[[workflows.steps]]
+type = "PrepareRelease"
+
+[[workflows.steps]]
+type = "Command"
+command = 'git commit -m "chore: prepare release $version"'
+
+[workflows.steps.variables]
+"$version" = "Version"
+
+[[workflows.steps]]
+type = "Command"
+command = "git push"
+
+[[workflows.steps]]
+type = "Release"
+
+[[workflows]]
+name = "document-change"
+
+[[workflows.steps]]
+type = "CreateChangeFile"
+
+[[workflows]]
+name = "get-version"
+help_text = "Get the current version of the project"
+
+[[workflows.steps]]
+type = "Command"
+command = 'echo "$version"'
+
+[workflows.steps.variables]
+"$version" = "Version"
+
+[github]
+owner = "doc-E-brown"
+repo = "knopeWorkspaceTest"

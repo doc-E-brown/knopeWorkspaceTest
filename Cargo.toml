@@ -1,0 +1,9 @@
+[workspace.package]
+name = "knope-workspace-test"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = ["crate1", "crate2", "src/crate2"]
+
+[workspace.dependencies]
